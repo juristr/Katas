@@ -9,3 +9,5 @@ String Calculator kata with plain JavaScript
 **For unit testing**: 
 
 - QUnit
+
+# Findings
