@@ -5,9 +5,7 @@ module("StringCalculator", {
 
 	teardown: function(){
 		delete this.calculator;
-	},
-
-
+	}
 });
 
 test("Invoking the calculator with the new operator should create a new object", function(){
@@ -93,6 +91,16 @@ test("Should throw exception when passing '-1'", function(){
 		this.calculator.add("-1");
 	}catch(e){
 		same("Negatives not allowed: -1", e.message);
+	}
+});
+
+test("Should throw exception when passing negatives and list all of them in the message", function(){
+	expect(1);
+
+	try{
+		this.calculator.add("-1, 4, -2");
+	}catch(e){
+		same("Negatives not allowed: -1, -2", e.message);
 	}
 });
 

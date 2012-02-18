@@ -1,5 +1,4 @@
-var StringCalculator = function(){
-};
+var StringCalculator = function(){};
 
 StringCalculator.prototype.add = function(numbers){
 	if(numbers === undefined || numbers === null || numbers === "")
@@ -15,9 +14,19 @@ StringCalculator.prototype.add = function(numbers){
 
 	var sum = 0;
 	var splitted = numbers.split(delimiter);
+
+	var negatives = [];
+
 	for(var i=0; i < splitted.length; i++){
 		var num = parseInt(splitted[i]);
+		if(num < 0){
+			negatives.push(num);
+		}
 		sum += num;
+	}
+
+	if(negatives.length > 0){
+		throw { message: "Negatives not allowed: " + negatives.join(", ")};
 	}
 
 	return sum;
