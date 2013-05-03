@@ -86,5 +86,10 @@ public class CalculatorTest {
 		
 		assertTrue("An exception should have been fired", exceptionFired);
 	}
+	
+	@Test
+	public void shouldNotAddNumbersBiggerThan1000(){
+		assertEquals(2, calculator.add("2,1001"));		
+	}
 
 }
