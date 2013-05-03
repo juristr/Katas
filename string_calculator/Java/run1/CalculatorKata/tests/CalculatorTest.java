@@ -37,5 +37,10 @@ public class CalculatorTest {
 	public void shouldReturn2WhenPassing2() {
 		assertEquals(2, calculator.add("2"));
 	}
+	
+	@Test
+	public void shouldCorrectlySumTwoNumbers(){
+		assertEquals(3, calculator.add("1,2"));
+	}
 
 }
