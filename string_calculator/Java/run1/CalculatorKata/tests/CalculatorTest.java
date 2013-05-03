@@ -48,5 +48,10 @@ public class CalculatorTest {
 		assertEquals(9, calculator.add("1,2,6"));
 		assertEquals(11, calculator.add("1,2,1,3,4"));
 	}
+	
+	@Test
+	public void shouldAllowNewlineCharsInsteadOfCommas(){
+		assertEquals(6, calculator.add("1\n2,3"));
+	}
 
 }
