@@ -26,5 +26,17 @@ public class CalculatorTest {
         //assert
         assertEquals(0, result);        
     }
+    
+    @Test
+    public void shouldReturn0WhenPassingNull()  {
+        //arrange
+        Calculator calc = new Calculator();
+
+        //act
+        int result = calc.add(null);
+
+        //assert
+        assertEquals(0, result);
+    }
 	
 }
