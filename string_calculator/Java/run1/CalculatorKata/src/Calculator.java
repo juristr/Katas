@@ -27,7 +27,9 @@ public class Calculator {
 				if(number < 0)
 					negatives.add(number);
 				
-				sum += number;
+				if(number <= 1000) {
+					sum += number;
+				}
 			}
 			
 			if(negatives.isEmpty() == false){

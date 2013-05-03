@@ -89,7 +89,8 @@ public class CalculatorTest {
 	
 	@Test
 	public void shouldNotAddNumbersBiggerThan1000(){
-		assertEquals(2, calculator.add("2,1001"));		
+		assertEquals(2, calculator.add("2,1001"));
+		assertEquals(1002, calculator.add("2,1000"));
 	}
 
 }
