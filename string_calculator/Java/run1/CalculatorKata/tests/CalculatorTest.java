@@ -58,5 +58,18 @@ public class CalculatorTest {
 	public void shouldAllowToSpecifyADifferentDelimiters(){
 		assertEquals(3, calculator.add("//;\n1;2"));
 	}
+	
+	@Test
+	public void shouldThrowExceptionIfNegativeNumbersArePassed(){
+		boolean exceptionFired = false;
+		
+		try{
+			assertEquals(3, calculator.add("//;\n1;-2"));			
+		}catch(Exception e){
+			assertEquals("Negatives not allowed: -2", e.getMessage());
+		}
+		
+		assertTrue("An exception should have been fired", exceptionFired);
+	}
 
 }
