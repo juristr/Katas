@@ -15,4 +15,16 @@ public class CalculatorTest {
 	public void tearDown() throws Exception {
 	}
 
+    @Test
+    public void shouldReturn0WhenPassingEmptyString() {
+        //arrange
+        Calculator calc = new Calculator();
+
+        //act
+        int result = calc.add("");
+
+        //assert
+        assertEquals(0, result);        
+    }
+	
 }
