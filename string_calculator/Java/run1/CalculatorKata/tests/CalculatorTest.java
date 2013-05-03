@@ -61,7 +61,7 @@ public class CalculatorTest {
 	
 	@Test
 	public void shouldAllowToSpecifyACustomDelimiterOfAnyLength(){
-		assertEquals(6, calculator.add("//***\n1***2***3"));
+		assertEquals(6, calculator.add("//[***]\n1***2***3"));
 	}
 	
 	@Test
