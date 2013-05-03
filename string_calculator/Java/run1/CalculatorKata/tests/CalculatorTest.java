@@ -1,4 +1,5 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -57,6 +58,7 @@ public class CalculatorTest {
 	@Test
 	public void shouldAllowToSpecifyADifferentDelimiters(){
 		assertEquals(3, calculator.add("//;\n1;2"));
+		assertEquals(3, calculator.add("//[;]\n1;2"));
 	}
 	
 	@Test

@@ -48,13 +48,15 @@ public class Calculator {
 	private String getDelimiter(String numberString){
 		String delimiter = ",";
 		
-		Pattern p = Pattern.compile("\\[(.*)\\]");
+		Pattern p = Pattern.compile("^\\/\\/.*\\n");
 		Matcher m = p.matcher(numberString);
 		if(m.find()){
 			delimiter = m.group(0);
-			delimiter = delimiter.replace("[", "").replace("]", "");
-		}else{
-			delimiter = numberString.substring(2, 3);	
+			delimiter = delimiter
+							.replace("[", "")
+							.replace("]", "")
+							.replace("\n", "")
+							.replace("//", "");
 		}
 		
 		return delimiter;
