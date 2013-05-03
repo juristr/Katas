@@ -6,8 +6,13 @@ public class Calculator {
 			return 0;
 		
 		if(numberString.contains(",")){
+			int sum = 0;
+			
 			String[] rawNumbers = numberString.split(",");
-			return Integer.parseInt(rawNumbers[0]) + Integer.parseInt(rawNumbers[1]);			
+			for (String rawNumber : rawNumbers) {
+				sum += Integer.parseInt(rawNumber);
+			}
+			return sum;
 		}else{
 			return Integer.parseInt(numberString);
 		}
