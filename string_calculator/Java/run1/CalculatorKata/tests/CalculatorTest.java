@@ -60,6 +60,11 @@ public class CalculatorTest {
 	}
 	
 	@Test
+	public void shouldAllowToSpecifyACustomDelimiterOfAnyLength(){
+		assertEquals(6, calculator.add("//***\n1***2***3"));
+	}
+	
+	@Test
 	public void shouldThrowExceptionIfNegativeNumbersArePassed(){
 		boolean exceptionFired = false;
 		
@@ -92,5 +97,6 @@ public class CalculatorTest {
 		assertEquals(2, calculator.add("2,1001"));
 		assertEquals(1002, calculator.add("2,1000"));
 	}
+	
 
 }
