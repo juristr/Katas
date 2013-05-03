@@ -42,5 +42,11 @@ public class CalculatorTest {
 	public void shouldCorrectlySumTwoNumbers(){
 		assertEquals(3, calculator.add("1,2"));
 	}
+	
+	@Test
+	public void shouldSumNDifferentNumbers(){
+		assertEquals(9, calculator.add("1,2,6"));
+		assertEquals(11, calculator.add("1,2,1,3,4"));
+	}
 
 }
