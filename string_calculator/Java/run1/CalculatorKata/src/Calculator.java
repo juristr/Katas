@@ -5,13 +5,20 @@ public class Calculator {
 		if(numberString == null || numberString == "")
 			return 0;
 		
-		//replace newlines to handle them the same way as a separator
-		numberString = numberString.replace("\n", ",");
+		//;\n1;2
+		String delimiter = ",";
+		if(numberString.contains("//")){
+			delimiter = numberString.substring(2, 3);
+			numberString = numberString.substring(4);
+		}
 		
-		if(numberString.contains(",")){
+		//replace newlines to handle them the same way as a separator
+		numberString = numberString.replace("\n", delimiter);
+		
+		if(numberString.contains(delimiter)){
 			int sum = 0;
 			
-			String[] rawNumbers = numberString.split(",");
+			String[] rawNumbers = numberString.split(delimiter);
 			for (String rawNumber : rawNumbers) {
 				sum += Integer.parseInt(rawNumber);
 			}
