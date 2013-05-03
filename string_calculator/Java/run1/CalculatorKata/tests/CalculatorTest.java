@@ -67,6 +67,21 @@ public class CalculatorTest {
 			assertEquals(3, calculator.add("//;\n1;-2"));			
 		}catch(Exception e){
 			assertEquals("Negatives not allowed: -2", e.getMessage());
+			exceptionFired = true;
+		}
+		
+		assertTrue("An exception should have been fired", exceptionFired);
+	}
+	
+	@Test
+	public void shouldThrowExceptionWithMoreNegatives(){
+		boolean exceptionFired = false;
+		
+		try{
+			assertEquals(3, calculator.add("//;\n1;-2;4;-1"));			
+		}catch(Exception e){
+			assertEquals("Negatives not allowed: -2, -1", e.getMessage());
+			exceptionFired = true;
 		}
 		
 		assertTrue("An exception should have been fired", exceptionFired);

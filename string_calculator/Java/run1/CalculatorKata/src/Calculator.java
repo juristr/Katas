@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 public class Calculator {
 
@@ -17,15 +19,38 @@ public class Calculator {
 		
 		if(numberString.contains(delimiter)){
 			int sum = 0;
+			ArrayList<Integer> negatives = new ArrayList<Integer>();
 			
 			String[] rawNumbers = numberString.split(delimiter);
 			for (String rawNumber : rawNumbers) {
-				sum += Integer.parseInt(rawNumber);
+				int number = Integer.parseInt(rawNumber);
+				if(number < 0)
+					negatives.add(number);
+				
+				sum += number;
 			}
+			
+			if(negatives.isEmpty() == false){
+				throw new RuntimeException("Negatives not allowed: " + formatNegatives(negatives));
+			}
+			
 			return sum;
 		}else{
 			return Integer.parseInt(numberString);
 		}
+	}
+
+	private static String formatNegatives(ArrayList<Integer> negatives) {
+		StringBuilder builder = new StringBuilder();
+		
+		for (int i = 0; i < negatives.size(); i++) {
+			if(i < negatives.size() - 1)
+				builder.append(negatives.get(i) + ", ");
+			else
+				builder.append(negatives.get(i));
+		}
+
+		return builder.toString();
 	}
 
 }
