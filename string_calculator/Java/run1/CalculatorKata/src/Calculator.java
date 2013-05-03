@@ -5,6 +5,9 @@ public class Calculator {
 		if(numberString == null || numberString == "")
 			return 0;
 		
+		//replace newlines to handle them the same way as a separator
+		numberString = numberString.replace("\n", ",");
+		
 		if(numberString.contains(",")){
 			int sum = 0;
 			
