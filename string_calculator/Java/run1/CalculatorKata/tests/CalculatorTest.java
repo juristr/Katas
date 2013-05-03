@@ -7,48 +7,31 @@ import org.junit.Test;
 
 public class CalculatorTest {
 
+	private Calculator calculator;
+	
 	@Before
 	public void setUp() throws Exception {
+		this.calculator = new Calculator();
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		this.calculator = null;
 	}
 
     @Test
     public void shouldReturn0WhenPassingEmptyString() {
-        //arrange
-        Calculator calc = new Calculator();
-
-        //act
-        int result = calc.add("");
-
-        //assert
-        assertEquals(0, result);        
+        assertEquals(0, calculator.add(""));        
     }
     
     @Test
     public void shouldReturn0WhenPassingNull()  {
-        //arrange
-        Calculator calc = new Calculator();
-
-        //act
-        int result = calc.add(null);
-
-        //assert
-        assertEquals(0, result);
+        assertEquals(0, calculator.add(null));
     }
     
     @Test
     public void shouldReturn1WhenPassing1(){
-        //arrange
-        Calculator calc = new Calculator();
-
-        //act
-        int result = calc.add("1");
-
-        //assert
-        assertEquals(1, result);        
+        assertEquals(1, calculator.add("1"));        
     }
 	
 }
