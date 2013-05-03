@@ -13,15 +13,7 @@ public class Calculator {
 		//;\n1;2
 		String delimiter = ",";
 		if(numberString.contains("//")){
-			Pattern p = Pattern.compile("\\[(.*)\\]");
-			Matcher m = p.matcher(numberString);
-			if(m.find()){
-				delimiter = m.group(0);
-				delimiter = delimiter.replace("[", "").replace("]", "");
-			}else{
-				delimiter = numberString.substring(2, 3);	
-			}			
-			
+			delimiter = getDelimiter(numberString);
 			numberString = numberString.substring(numberString.indexOf("\n")+1);
 		}
 		
@@ -51,6 +43,21 @@ public class Calculator {
 		}else{
 			return Integer.parseInt(numberString);
 		}
+	}
+	
+	private String getDelimiter(String numberString){
+		String delimiter = ",";
+		
+		Pattern p = Pattern.compile("\\[(.*)\\]");
+		Matcher m = p.matcher(numberString);
+		if(m.find()){
+			delimiter = m.group(0);
+			delimiter = delimiter.replace("[", "").replace("]", "");
+		}else{
+			delimiter = numberString.substring(2, 3);	
+		}
+		
+		return delimiter;
 	}
 
 	private static String formatNegatives(ArrayList<Integer> negatives) {
