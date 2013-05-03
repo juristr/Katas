@@ -62,6 +62,7 @@ public class CalculatorTest {
 	@Test
 	public void shouldAllowToSpecifyACustomDelimiterOfAnyLength(){
 		assertEquals(6, calculator.add("//[***]\n1***2***3"));
+		assertEquals(6, calculator.add("//[aa]\n1aa2aa3"));
 	}
 	
 	@Test
@@ -69,7 +70,7 @@ public class CalculatorTest {
 		boolean exceptionFired = false;
 		
 		try{
-			assertEquals(3, calculator.add("//;\n1;-2"));			
+			assertEquals(3, calculator.add("//;\n1;-2"));	
 		}catch(Exception e){
 			assertEquals("Negatives not allowed: -2", e.getMessage());
 			exceptionFired = true;

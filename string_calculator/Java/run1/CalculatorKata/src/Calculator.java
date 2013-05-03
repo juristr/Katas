@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class Calculator {
@@ -10,8 +13,16 @@ public class Calculator {
 		//;\n1;2
 		String delimiter = ",";
 		if(numberString.contains("//")){
-			delimiter = numberString.substring(2, 3);
-			numberString = numberString.substring(4);
+			Pattern p = Pattern.compile("\\[(.*)\\]");
+			Matcher m = p.matcher(numberString);
+			if(m.find()){
+				delimiter = m.group(0);
+				delimiter = delimiter.replace("[", "").replace("]", "");
+			}else{
+				delimiter = numberString.substring(2, 3);	
+			}			
+			
+			numberString = numberString.substring(numberString.indexOf("\n")+1);
 		}
 		
 		//replace newlines to handle them the same way as a separator
@@ -21,9 +32,9 @@ public class Calculator {
 			int sum = 0;
 			ArrayList<Integer> negatives = new ArrayList<Integer>();
 			
-			String[] rawNumbers = numberString.split(delimiter);
-			for (String rawNumber : rawNumbers) {
-				int number = Integer.parseInt(rawNumber);
+			StringTokenizer str = new StringTokenizer(numberString, delimiter);
+			while(str.hasMoreTokens()){
+				int number = Integer.parseInt(str.nextToken());
 				if(number < 0)
 					negatives.add(number);
 				
