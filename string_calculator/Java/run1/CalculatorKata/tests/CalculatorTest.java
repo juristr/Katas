@@ -38,5 +38,17 @@ public class CalculatorTest {
         //assert
         assertEquals(0, result);
     }
+    
+    @Test
+    public void shouldReturn1WhenPassing1(){
+        //arrange
+        Calculator calc = new Calculator();
+
+        //act
+        int result = calc.add("1");
+
+        //assert
+        assertEquals(1, result);        
+    }
 	
 }
